@@ -37,10 +37,10 @@ event ProductPurchased (
     require(bytes(_name).length > 0, "Enter a valid name");
     //Requiere a valid price
     require(_price > 0, "Enter a valid price");
-    //Increment product count
-    productCount++;
     //Create the product
     products[productCount] = Product(productCount, _name, _price, msg.sender, false);
+    //Increment product count
+    productCount++;
     //Trigger an event
     emit ProductCreated(productCount, _name, _price, msg.sender, false);
   }
