@@ -39,7 +39,7 @@ class App extends Component {
       // console.log(productCount.toString())
       this.setState({ productCount })
       //Load products
-      for (let i = 0; i <= productCount; i++) {
+      for (let i = 1; i <= productCount; i++) {
         const product = await marketplace.methods.products(i).call()
         this.setState({
           products: [...this.state.products, product]

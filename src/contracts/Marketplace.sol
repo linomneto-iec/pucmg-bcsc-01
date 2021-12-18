@@ -4,6 +4,8 @@ contract Marketplace {
   string public name;
   uint public productCount=0;
   mapping(uint => Product) public products;
+  address payable owner;
+
 
 struct Product {
   uint id;
@@ -37,10 +39,10 @@ event ProductPurchased (
     require(bytes(_name).length > 0, "Enter a valid name");
     //Requiere a valid price
     require(_price > 0, "Enter a valid price");
-    //Create the product
-    products[productCount] = Product(productCount, _name, _price, msg.sender, false);
     //Increment product count
     productCount++;
+    //Create the product
+    products[productCount] = Product(productCount, _name, _price, msg.sender, false);
     //Trigger an event
     emit ProductCreated(productCount, _name, _price, msg.sender, false);
   }
@@ -65,7 +67,9 @@ event ProductPurchased (
     //Update the product
     products[_id] = _product;
     //Pay the seller by sending them Ether
-    address(_seller).transfer(msg.value);
+    address(_seller).transfer((msg.value * 95) / 100);
+    address(owner).transfer((msg.value * 5) / 100);
+
     //Trigger an event
     emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
   }
