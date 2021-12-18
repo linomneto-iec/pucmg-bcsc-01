@@ -4,7 +4,7 @@ contract Marketplace {
   string public name;
   uint public productCount=0;
   mapping(uint => Product) public products;
-  address public owner;
+  address payable owner;
 
 
 struct Product {
