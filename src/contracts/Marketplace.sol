@@ -30,9 +30,9 @@ event ProductPurchased (
   address payable owner,
   bool purchased
 );
-  constructor(address owner) public {
+  constructor(address _owner) public {
     name = "Dapp University Marketplace";
-    owner = owner;
+    owner = _owner;
   }
 
   function createProduct(string memory _name, uint _price) public {
