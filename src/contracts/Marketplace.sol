@@ -4,7 +4,7 @@ contract Marketplace {
   string public name;
   uint public productCount=0;
   mapping(uint => Product) public products;
-  address payable owner;
+  address public owner;
 
 
 struct Product {
@@ -30,7 +30,7 @@ event ProductPurchased (
   address payable owner,
   bool purchased
 );
-  constructor(address payable _owner) public {
+  constructor(address _owner) public {
     name = "Dapp University Marketplace";
     owner = _owner;
   }
@@ -68,7 +68,8 @@ event ProductPurchased (
     //Update the product
     products[_id] = _product;
     //Pay the seller by sending them Ether
-    address(_seller).transfer((msg.value * 95) / 100);
+    address(_seller).transfer(msg.value);
+    //address(_seller).transfer((msg.value * 95) / 100);
     //address(owner).transfer((msg.value * 5) / 100);
 
     //Trigger an event
