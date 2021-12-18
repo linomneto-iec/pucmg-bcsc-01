@@ -4,7 +4,7 @@ contract Marketplace {
   string public name;
   uint public productCount=0;
   mapping(uint => Product) public products;
-  address payable owner;
+  address public owner;
 
 
 struct Product {
@@ -30,8 +30,9 @@ event ProductPurchased (
   address payable owner,
   bool purchased
 );
-  constructor() public {
+  constructor(address owner) public {
     name = "Dapp University Marketplace";
+    owner = owner;
   }
 
   function createProduct(string memory _name, uint _price) public {
