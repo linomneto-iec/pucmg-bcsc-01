@@ -30,7 +30,7 @@ event ProductPurchased (
   address payable owner,
   bool purchased
 );
-  constructor(address _owner) public {
+  constructor(address payable _owner) public {
     name = "Dapp University Marketplace";
     owner = _owner;
   }
@@ -69,7 +69,7 @@ event ProductPurchased (
     products[_id] = _product;
     //Pay the seller by sending them Ether
     address(_seller).transfer((msg.value * 95) / 100);
-    address(owner).transfer((msg.value * 5) / 100);
+    //address(owner).transfer((msg.value * 5) / 100);
 
     //Trigger an event
     emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
