@@ -83,7 +83,7 @@ class Main extends Component {
                       name={product.id}
                       value={product.price}
                       onClick={(event) => {
-                        this.props.editProductPrice(product.id, this.newValueProduct)
+                        this.props.editProductPrice(product.id, this.newValueProduct.value)
                       }}
                     >Alterar valor</button>
 
