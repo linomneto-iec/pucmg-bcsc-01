@@ -83,6 +83,14 @@ class App extends Component {
       .on('error', console.error); // If a out of gas error, the second parameter is the receipt.
   }
 
+  editProduct(id, price) {
+    this.setState({ loading: true })
+    this.state.marketplace.methods.editProductPrice(id, price).send({ from: this.state.account })
+      .on('confirmation', function (confirmationNumber, receipt) {
+        window.location.reload(false);
+      })
+  }
+
   render() {
     return (
       <div>
