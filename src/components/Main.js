@@ -69,9 +69,8 @@ class Main extends Component {
                   </td>
                   <td>
                     <input
-                      id="productName"
                       type="text"
-                      value={product.price}
+                      value={window.web3.utils.fromWei(product.price.toString(), "ether")}
                       ref={(input) => { this.newValue = input }}
                       className="form-control"
                       placeholder="Nome do produto"
