@@ -103,7 +103,7 @@ event ProductEdited (
     emit ProductEdited(productCount, _product.name, _product.price, msg.sender, true);
   }
 
-  function editProductActive(uint _id, boolean _active) public payable {
+  function editProductActive(uint _id, bool _active) public payable {
     //Fetch the product and make a copy of it
     Product memory _product = products[_id];
     //Fetch the owner
