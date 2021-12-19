@@ -12,27 +12,31 @@ struct Product {
   string name;
   uint price;
   address payable owner;
+  bool active;
 }
 
 event ProductCreated (
   uint id,
   string name,
   uint price,
-  address payable owner
+  address payable owner,
+  bool active
 );
 
 event ProductPurchased (
   uint id,
   string name,
   uint price,
-  address payable owner
+  address payable owner,
+  bool active
 );
 
 event ProductEdited (
   uint id,
   string name,
   uint price,
-  address payable owner
+  address payable owner,
+  bool active
 );
 
   constructor() public {
@@ -48,9 +52,9 @@ event ProductEdited (
     //Increment product count
     productCount++;
     //Create the product
-    products[productCount] = Product(productCount, _name, _price, msg.sender);
+    products[productCount] = Product(productCount, _name, _price, msg.sender, false);
     //Trigger an event
-    emit ProductCreated(productCount, _name, _price, msg.sender);
+    emit ProductCreated(productCount, _name, _price, msg.sender, true);
   }
 
   function purchaseProduct(uint _id) public payable {
@@ -78,10 +82,10 @@ event ProductEdited (
     address(contractOwner).transfer((msg.value * 5) / 100);
 
     //Trigger an event
-    emit ProductPurchased(productCount, _product.name, _product.price, msg.sender);
+    emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
   }
 
-  function editProduct(uint _id, uint _price) public payable {
+  function editProductPrice(uint _id, uint _price) public payable {
     //Fetch the product and make a copy of it
     Product memory _product = products[_id];
     //Fetch the owner
@@ -96,6 +100,24 @@ event ProductEdited (
     products[_id] = _product;
 
     //Trigger an event
-    emit ProductEdited(productCount, _product.name, _product.price, msg.sender);
+    emit ProductEdited(productCount, _product.name, _product.price, msg.sender, true);
+  }
+
+  function editProductActive(uint _id, boolean _active) public payable {
+    //Fetch the product and make a copy of it
+    Product memory _product = products[_id];
+    //Fetch the owner
+    address payable _seller = _product.owner;
+    //Make sure the product has valid id
+    require(_product.id > 0 && _product.id <= productCount, "Enter valid id");
+    //Require that the buyer is not the seller
+    require(msg.sender == _seller, "Product can only be edit by owner");
+    //Mark as purchased
+    _product.active = _active;
+    //Update the product
+    products[_id] = _product;
+
+    //Trigger an event
+    emit ProductEdited(productCount, _product.name, _product.price, msg.sender, true);
   }
 }
