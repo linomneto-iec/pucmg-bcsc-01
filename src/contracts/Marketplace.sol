@@ -12,31 +12,27 @@ struct Product {
   string name;
   uint price;
   address payable owner;
-  bool purchased;
 }
 
 event ProductCreated (
   uint id,
   string name,
   uint price,
-  address payable owner,
-  bool purchased
+  address payable owner
 );
 
 event ProductPurchased (
   uint id,
   string name,
   uint price,
-  address payable owner,
-  bool purchased
+  address payable owner
 );
 
 event ProductEdited (
   uint id,
   string name,
   uint price,
-  address payable owner,
-  bool purchased
+  address payable owner
 );
 
   constructor() public {
@@ -67,13 +63,13 @@ event ProductEdited (
     //Require that there is enough Ether in the transaction
     require(msg.value >= _product.price,"Transfer the correct amount");
     //Require that the product has not been purchased already
-    require(!_product.purchased, "Product has been purchased");
+    //require(!_product.purchased, "Product has been purchased");
     //Require that the buyer is not the seller
     require(msg.sender != _seller, "Buyer cannot be seller");
     //Transfer ownership to the buyer
     _product.owner = msg.sender;
     //Mark as purchased
-    _product.purchased = true;
+    //_product.purchased = true;
     //Update the product
     products[_id] = _product;
     //Pay the seller by sending them Ether
