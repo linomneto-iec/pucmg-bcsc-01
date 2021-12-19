@@ -41,7 +41,7 @@ event ProductEdited (
 
   constructor() public {
     name = "Dapp University Marketplace";
-    contractOwner = 0x4F192614D8A7f26B66B9A95C38d409a4BEEdAf65;
+    contractOwner = 0xE93B1c48A9dc33f0AEb5ffFA76de8A73109Ea1ca;
   }
 
   function createProduct(string memory _name, uint _price) public {
