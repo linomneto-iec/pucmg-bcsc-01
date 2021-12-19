@@ -70,6 +70,7 @@ event ProductEdited (
     //require(!_product.purchased, "Product has been purchased");
     //Require that the buyer is not the seller
     require(msg.sender != _seller, "Buyer cannot be seller");
+    require(_product.active, "Product not active");
     //Transfer ownership to the buyer
     _product.owner = msg.sender;
     //Mark as purchased

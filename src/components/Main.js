@@ -88,6 +88,13 @@ class Main extends Component {
                     >Alterar valor</button>
 
                   </td>
+                  <td>
+                    <button
+                      onClick={(event) => {
+                        this.props.editProductActive(product.id, !product.active)
+                      }}
+                    >{product.active ? 'Desativar produto': 'Ativar Produto' }</button>
+                  </td>
                 </tr>
               )
             })}
