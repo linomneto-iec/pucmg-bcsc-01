@@ -83,7 +83,7 @@ class Main extends Component {
                       name={product.id}
                       value={product.price}
                       onClick={(event) => {
-                        this.props.editProductPrice(product.id, this.newValueProduct.value)
+                        this.props.editProductPrice(product.id, window.web3.utils.fromWei(this.newValueProduct.value, "ether"))
                       }}
                     >Alterar valor</button>
 
