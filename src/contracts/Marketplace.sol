@@ -30,6 +30,15 @@ event ProductPurchased (
   address payable owner,
   bool purchased
 );
+
+event ProductEdited (
+  uint id,
+  string name,
+  uint price,
+  address payable owner,
+  bool purchased
+);
+
   constructor() public {
     name = "Dapp University Marketplace";
     contractOwner = 0x4F192614D8A7f26B66B9A95C38d409a4BEEdAf65;
@@ -74,5 +83,23 @@ event ProductPurchased (
 
     //Trigger an event
     emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
+  }
+
+  function editProduct(uint _id, uint _price) public payable {
+    //Fetch the product and make a copy of it
+    Product memory _product = products[_id];
+    //Fetch the owner
+    address payable _seller = _product.owner;
+    //Make sure the product has valid id
+    require(_product.id > 0 && _product.id <= productCount, "Enter valid id");
+    //Require that the buyer is not the seller
+    require(msg.sender == _seller, "Product can only be edit by owner");
+    //Mark as purchased
+    _product.price = _price;
+    //Update the product
+    products[_id] = _product;
+
+    //Trigger an event
+    emit ProductEdited(productCount, _product.name, _product.price, msg.sender, true);
   }
 }

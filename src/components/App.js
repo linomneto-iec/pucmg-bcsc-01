@@ -77,8 +77,8 @@ class App extends Component {
   purchaseProduct(id, price) {
     this.setState({ loading: true })
     this.state.marketplace.methods.purchaseProduct(id).send({ from: this.state.account, value: price })
-      .once('receipt', (receipt) => {
-        this.setState({ loading: false })
+      .on('confirmation', function(confirmationNumber, receipt) {
+        window.location.reload(false)
       })
       .on('error', console.error); // If a out of gas error, the second parameter is the receipt.
   }
