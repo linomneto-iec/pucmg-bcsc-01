@@ -80,6 +80,7 @@ class App extends Component {
       .once('receipt', (receipt) => {
         this.setState({ loading: false })
       })
+      .on('error', console.error); // If a out of gas error, the second parameter is the receipt.
   }
 
   render() {
