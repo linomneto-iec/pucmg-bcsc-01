@@ -113,6 +113,7 @@ class App extends Component {
                   createProduct = {this.createProduct}
                   purchaseProduct = {this.purchaseProduct} 
                   editProductPrice = {this.editProductPrice} 
+                  editProductActive = {this.editProductActive}
                   />
               }
             </main>
