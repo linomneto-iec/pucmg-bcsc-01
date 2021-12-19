@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "336dddf5764bf17bdd4e",
+    "revision": "d4afd6399aab7544216c",
     "url": "/ethereum-marketplace/static/css/main.9a7a6ce8.chunk.css"
   },
   {
-    "revision": "336dddf5764bf17bdd4e",
-    "url": "/ethereum-marketplace/static/js/main.336dddf5.chunk.js"
+    "revision": "d4afd6399aab7544216c",
+    "url": "/ethereum-marketplace/static/js/main.d4afd639.chunk.js"
   },
   {
     "revision": "6289537ac007e4cfff5b",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/ethereum-marketplace/static/js/runtime~main.42e5a1b9.js"
   },
   {
-    "revision": "b96857b2a8592d40d23368248bbb1f38",
+    "revision": "8860e5feba6ffbea416d7e14a6b8549c",
     "url": "/ethereum-marketplace/index.html"
   }
 ];

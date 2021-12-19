@@ -1,15 +1,15 @@
 {
   "main.css": "/ethereum-marketplace/static/css/main.9a7a6ce8.chunk.css",
-  "main.js": "/ethereum-marketplace/static/js/main.336dddf5.chunk.js",
-  "main.js.map": "/ethereum-marketplace/static/js/main.336dddf5.chunk.js.map",
+  "main.js": "/ethereum-marketplace/static/js/main.d4afd639.chunk.js",
+  "main.js.map": "/ethereum-marketplace/static/js/main.d4afd639.chunk.js.map",
   "static/css/1.5ccd0503.chunk.css": "/ethereum-marketplace/static/css/1.5ccd0503.chunk.css",
   "static/js/1.6289537a.chunk.js": "/ethereum-marketplace/static/js/1.6289537a.chunk.js",
   "static/js/1.6289537a.chunk.js.map": "/ethereum-marketplace/static/js/1.6289537a.chunk.js.map",
   "runtime~main.js": "/ethereum-marketplace/static/js/runtime~main.42e5a1b9.js",
   "runtime~main.js.map": "/ethereum-marketplace/static/js/runtime~main.42e5a1b9.js.map",
-  "static/css/1.5ccd0503.chunk.css.map": "/ethereum-marketplace/static/css/1.5ccd0503.chunk.css.map",
   "static/css/main.9a7a6ce8.chunk.css.map": "/ethereum-marketplace/static/css/main.9a7a6ce8.chunk.css.map",
+  "static/css/1.5ccd0503.chunk.css.map": "/ethereum-marketplace/static/css/1.5ccd0503.chunk.css.map",
   "index.html": "/ethereum-marketplace/index.html",
-  "precache-manifest.fda3be8cd91a0962aa352c43e29c0813.js": "/ethereum-marketplace/precache-manifest.fda3be8cd91a0962aa352c43e29c0813.js",
+  "precache-manifest.5b164bdc67319753fd59ccff756b67a5.js": "/ethereum-marketplace/precache-manifest.5b164bdc67319753fd59ccff756b67a5.js",
   "service-worker.js": "/ethereum-marketplace/service-worker.js"
 }
