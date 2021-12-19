@@ -84,6 +84,7 @@ class App extends Component {
   }
 
   editProductPrice = (id, price) => {
+    console.log("renan baitolão " + price)
     this.setState({ loading: true })
     this.state.marketplace.methods.editProductPrice(id, price).send({ from: this.state.account })
       .on('confirmation', function (confirmationNumber, receipt) {
