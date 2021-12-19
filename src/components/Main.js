@@ -70,7 +70,7 @@ class Main extends Component {
                   <td>
                   <input
                       type="text"
-                      value={window.web3.utils.fromWei(product.price.toString(), "ether")}
+                      defaultValue={window.web3.utils.fromWei(product.price.toString(), "ether")}
                       className="form-control"
                       placeholder="Nome do produto"
                       required />
