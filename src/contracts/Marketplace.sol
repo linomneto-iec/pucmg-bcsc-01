@@ -50,7 +50,7 @@ event ProductEdited (
     //Create the product
     products[productCount] = Product(productCount, _name, _price, msg.sender, false);
     //Trigger an event
-    emit ProductCreated(productCount, _name, _price, msg.sender, false);
+    emit ProductCreated(productCount, _name, _price, msg.sender);
   }
 
   function purchaseProduct(uint _id) public payable {
@@ -78,7 +78,7 @@ event ProductEdited (
     address(contractOwner).transfer((msg.value * 5) / 100);
 
     //Trigger an event
-    emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
+    emit ProductPurchased(productCount, _product.name, _product.price, msg.sender);
   }
 
   function editProduct(uint _id, uint _price) public payable {
@@ -96,6 +96,6 @@ event ProductEdited (
     products[_id] = _product;
 
     //Trigger an event
-    emit ProductEdited(productCount, _product.name, _product.price, msg.sender, true);
+    emit ProductEdited(productCount, _product.name, _product.price, msg.sender);
   }
 }
