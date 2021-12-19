@@ -69,8 +69,9 @@ class App extends Component {
     this.setState({ loading: true })
     this.state.marketplace.methods.createProduct(name, price).send({ from: this.state.account })
       .on('confirmation', function(confirmationNumber, receipt) {
-        window.location.reload(false);
+        window.location.reload(false)
       })
+      .on('error', console.error); // If a out of gas error, the second parameter is the receipt.
   }
   
   purchaseProduct(id, price) {
