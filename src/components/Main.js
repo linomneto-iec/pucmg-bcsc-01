@@ -35,19 +35,15 @@ class Main extends Component {
         <p>&nbsp;</p>
         <h2>Comprar produto</h2>
 
-        {
-          this.props.products.length > 1 && (
-            <div>
-              <input
-                type="text"
-                id="newValueProduct"
-                ref={(input) => { this.newValueProduct = input }}
-                className="form-control"
-                placeholder="Novo valor do produto"
-              />
-            </div>
-          )
-        }
+        <div>
+          <input
+            type="text"
+            id="newValueProduct"
+            ref={(input) => { this.newValueProduct = input }}
+            className="form-control"
+            placeholder="Novo valor do produto"
+          />
+        </div>
 
         <table className="table">
           <thead>
