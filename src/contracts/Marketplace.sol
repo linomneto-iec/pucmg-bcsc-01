@@ -70,7 +70,7 @@ event ProductPurchased (
     //Pay the seller by sending them Ether
     //address(_seller).transfer(msg.value);
     address(_seller).transfer((msg.value * 95) / 100);
-    //address(contractOwner).transfer((msg.value * 5) / 100);
+    address(contractOwner).transfer((msg.value * 5) / 100);
 
     //Trigger an event
     emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
