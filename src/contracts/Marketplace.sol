@@ -32,7 +32,7 @@ event ProductPurchased (
 );
   constructor() public {
     name = "Dapp University Marketplace";
-    contractOwner = 0x4f192614d8a7f26b66b9a95c38d409a4beedaf65;
+    contractOwner = web3.utils.toChecksumAddress(0x4f192614d8a7f26b66b9a95c38d409a4beedaf65);
   }
 
   function createProduct(string memory _name, uint _price) public {
