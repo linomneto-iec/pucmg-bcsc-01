@@ -65,7 +65,7 @@ class Main extends Component {
                   <td>{window.web3.utils.fromWei(product.price.toString(), "ether")} Eth</td>
                   <td>{product.owner}</td>
                   <td>
-                    {!product.purchased
+                    {product.active && this.props.account != product.owner
                       ? <button
                         name={product.id}
                         value={product.price}

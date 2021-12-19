@@ -109,6 +109,7 @@ class App extends Component {
               {this.state.loading
                 ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
                 : <Main
+                  account = {this.state.account}
                   products = {this.state.products}
                   createProduct = {this.createProduct}
                   purchaseProduct = {this.purchaseProduct} 
