@@ -79,21 +79,28 @@ class Main extends Component {
                     }
                   </td>
                   <td>
-                    <button
-                      name={product.id}
-                      value={product.price}
-                      onClick={(event) => {
-                        this.props.editProductPrice(product.id, window.web3.utils.toWei(this.newValueProduct.value, "ether"))
-                      }}
-                    >Alterar valor</button>
-
+                  {this.props.account == product.owner
+                      ?
+                        <button
+                          name={product.id}
+                          value={product.price}
+                          onClick={(event) => {
+                            this.props.editProductPrice(product.id, window.web3.utils.toWei(this.newValueProduct.value, "ether"))
+                          }}
+                        >Alterar valor</button>
+                      : null 
+                  }
                   </td>
                   <td>
+                  {this.props.account == product.owner
+                    ?
                     <button
                       onClick={(event) => {
                         this.props.editProductActive(product.id, !product.active)
                       }}
                     >{product.active ? 'Desativar produto': 'Ativar Produto' }</button>
+                    : null 
+                  }
                   </td>
                 </tr>
               )
