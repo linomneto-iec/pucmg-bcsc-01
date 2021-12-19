@@ -34,6 +34,21 @@ class Main extends Component {
         </form>
         <p>&nbsp;</p>
         <h2>Comprar produto</h2>
+
+        {
+          this.props.products.length > 1 && (
+            <div>
+              <input
+                type="text"
+                id="newValueProduct"
+                ref={(input) => { this.newValueProduct = input }}
+                className="form-control"
+                placeholder="Novo valor do produto"
+              />
+            </div>
+          )
+        }
+
         <table className="table">
           <thead>
             <tr>
@@ -68,19 +83,11 @@ class Main extends Component {
                     }
                   </td>
                   <td>
-                  <input
-                      type="text"
-                      defaultValue={window.web3.utils.fromWei(product.price.toString(), "ether")}
-                      className="form-control"
-                      placeholder="Nome do produto"
-                      required />
-
-
                     <button
                       name={product.id}
                       value={product.price}
                       onClick={(event) => {
-                        this.props.editProductPrice(product.id, product.price)
+                        this.props.editProductPrice(product.id, this.newValueProduct)
                       }}
                     >Alterar valor</button>
 
