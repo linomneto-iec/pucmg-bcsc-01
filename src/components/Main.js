@@ -42,6 +42,7 @@ class Main extends Component {
               <th scope="col">Preço</th>
               <th scope="col">Proprietário</th>
               <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody id="productList">
@@ -65,6 +66,24 @@ class Main extends Component {
                         </button>
                       : null
                     }
+                  </td>
+                  <td>
+                    <input
+                      id="productName"
+                      type="text"
+                      value={product.price}
+                      ref={(input) => { this.newValue = input }}
+                      className="form-control"
+                      placeholder="Nome do produto"
+                      required />
+
+                    <button
+                      name={product.id}
+                      value={product.price}
+                      onClick={(event) => {
+                        this.props.editProduct(product.id, this.newValue)
+                      }}
+                    >Alterar valor</button>
                   </td>
                 </tr>
               )
