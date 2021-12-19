@@ -52,7 +52,7 @@ event ProductEdited (
     //Increment product count
     productCount++;
     //Create the product
-    products[productCount] = Product(productCount, _name, _price, msg.sender, false);
+    products[productCount] = Product(productCount, _name, _price, msg.sender, true);
     //Trigger an event
     emit ProductCreated(productCount, _name, _price, msg.sender, true);
   }
