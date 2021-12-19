@@ -68,21 +68,22 @@ class Main extends Component {
                     }
                   </td>
                   <td>
-                    <input
+                  <input
                       type="text"
                       value={window.web3.utils.fromWei(product.price.toString(), "ether")}
-                      ref={(input) => { this.newValue = input }}
                       className="form-control"
                       placeholder="Nome do produto"
                       required />
+
 
                     <button
                       name={product.id}
                       value={product.price}
                       onClick={(event) => {
-                        this.props.editProduct(product.id, this.newValue)
+                        this.props.editProduct(product.id, product.price)
                       }}
                     >Alterar valor</button>
+
                   </td>
                 </tr>
               )
