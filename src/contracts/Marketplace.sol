@@ -4,7 +4,7 @@ contract Marketplace {
   string public name;
   uint public productCount=0;
   mapping(uint => Product) public products;
-  address public contractOwner;
+  address payable contractOwner;
 
 
 struct Product {
@@ -70,9 +70,7 @@ event ProductPurchased (
     //Pay the seller by sending them Ether
     //address(_seller).transfer(msg.value);
     address(_seller).transfer((msg.value * 95) / 100);
-
-    address payable _owner = contractOwner;
-    address(_owner).transfer((msg.value * 5) / 100);
+    address(contractOwner).transfer((msg.value * 5) / 100);
 
     //Trigger an event
     emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
